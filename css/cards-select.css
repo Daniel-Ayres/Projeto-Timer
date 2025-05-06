@@ -1,0 +1,271 @@
+/*
+  Este CSS define o estilo de um layout administrativo moderno com sidebar (barra lateral), navbar (barra de navegação superior), e área de conteúdo principal.
+
+  - Importa a fonte 'Rubik' do Google Fonts.
+  - Aplica reset básico (margem/padding/box-sizing) e estilização padrão para links e listas.
+  - Usa variáveis CSS para cores (tema escuro com tons de azul).
+  - Estiliza um sidebar fixo com opções de menu, incluindo comportamento de colapso (versão reduzida).
+  - Define o layout responsivo do conteúdo principal que se ajusta conforme o sidebar.
+  - Estiliza a barra de navegação no topo e a área principal com título e blocos de dados (ex: tabelas e listas de tarefas).
+  - Estiliza uma tabela de pedidos (orders) e uma lista de tarefas (to-do list), incluindo marcações de status e ações.
+  - Inclui uma área de entrada manual (data/hora) com botão de salvar.
+
+*/
+
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500&display=swap");
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+:root {
+	--light: #05006D;
+	--blue: #7bb7f3;
+	--light-blue: #CFE8FF;
+	--grey: #1c1d1c;
+	--dark: #ffffff;
+}
+
+body {
+	background: var(--grey);
+	overflow-x: hidden;
+	font-family: 'Rubik', sans-serif;
+}
+
+/* SIDEBAR */
+#sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 280px;
+	height: 100%;
+	background: var(--light);
+	z-index: 2000;
+	transition: .3s ease;
+	overflow-x: hidden;
+}
+#sidebar.hide {
+	width: 60px;
+}
+#sidebar .brand {
+	font-size: 24px;
+	font-weight: 700;
+	height: 56px;
+	display: flex;
+	align-items: center;
+	color: var(--blue);
+	padding-left: 16px;
+}
+#sidebar .side-menu {
+	width: 100%;
+	margin-top: 48px;
+}
+#sidebar .side-menu li {
+	height: 48px;
+	margin-left: 6px;
+	border-radius: 30px 0 0 30px;
+	padding: 4px;
+}
+#sidebar .side-menu li.active {
+	background: var(--grey);
+	position: relative;
+}
+#sidebar .side-menu li.active::before,
+#sidebar .side-menu li.active::after {
+	content: '';
+	position: absolute;
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+	right: 0;
+	z-index: -1;
+}
+#sidebar .side-menu li.active::before {
+	top: -30px;
+	box-shadow: 20px 20px 0 var(--grey);
+}
+#sidebar .side-menu li.active::after {
+	bottom: -30px;
+	box-shadow: 20px -20px 0 var(--grey);
+}
+#sidebar .side-menu li a {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	color: var(--dark);
+	padding: 0 16px;
+	height: 100%;
+	border-radius: 48px;
+	white-space: nowrap;
+	overflow-x: hidden;
+}
+#sidebar .side-menu.top li a:hover,
+#sidebar .side-menu.top li.active a {
+	color: var(--blue);
+}
+#sidebar.hide .side-menu li a {
+	width: 48px;
+	transition: width .3s ease;
+}
+#sidebar.hide .text {
+	display: none;
+}
+
+/* CONTENT */
+#content {
+	position: relative;
+	width: calc(100% - 280px);
+	left: 280px;
+	transition: .3s ease;
+}
+#sidebar.hide ~ #content {
+	width: calc(100% - 60px);
+	left: 60px;
+}
+
+/* NAVBAR */
+#content nav {
+	height: 56px;
+	background: var(--light);
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 1rem;
+	color: var(--dark);
+}
+
+/* MAIN */
+#content main {
+	width: 100%;
+	padding: 36px 24px;
+	max-height: calc(100vh - 56px);
+	overflow-y: auto;
+}
+
+.head-title h1 {
+	font-size: 36px;
+	font-weight: 600;
+	color: var(--dark);
+	margin-bottom: 20px;
+}
+
+.table-data {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 24px;
+	width: 100%;
+	color: var(--dark);
+}
+
+.table-data > div {
+	border-radius: 30px;
+	background: var(--light);
+	padding: 24px;
+	flex: 1;
+	overflow-x: auto;
+}
+
+.table-data .head h3 {
+	font-size: 24px;
+	font-weight: 600;
+	margin-bottom: 16px;
+}
+
+/* TABLE */
+.order table {
+	width: 100%;
+	border-collapse: collapse;
+}
+.order table th {
+	padding-bottom: 12px;
+	text-align: left;
+	border-bottom: 1px solid var(--grey);
+}
+.order table td {
+	padding: 16px 0;
+}
+.order table tr td:first-child {
+	padding-left: 6px;
+	font-weight: bold;
+}
+.order table tbody tr:hover {
+	background: var(--grey);
+}
+.status {
+	font-size: 10px;
+	padding: 6px 16px;
+	color: var(--light);
+	border-radius: 20px;
+	font-weight: 700;
+	background: none;
+}
+
+/* TODO LIST */
+.todo-list li {
+	width: 100%;
+	margin-bottom: 16px;
+	background: var(--grey);
+	border-radius: 16px;
+	padding: 14px 20px;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	align-items: center;
+	justify-content: space-between;
+}
+.todo-list li.completed {
+	border-left: 10px solid var(--blue);
+}
+
+.todo-list .timer {
+	font-weight: bold;
+	color: var(--light-blue);
+}
+
+.todo-list .actions {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.todo-list .actions button {
+	background: none;
+	border: none;
+	cursor: pointer;
+	color: white;
+	font-size: 1.2rem;
+}
+
+.manual-input {
+	display: none;
+	width: 100%;
+	margin-top: 10px;
+	gap: 10px;
+	display: flex;
+}
+.manual-input input[type="date"],
+.manual-input input[type="time"] {
+	padding: 4px;
+	border-radius: 6px;
+	border: none;
+}
+.manual-input button.save-manual {
+	background-color: var(--blue);
+	color: white;
+	border: none;
+	padding: 5px 10px;
+	border-radius: 6px;
+	cursor: pointer;
+}
+

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!--
+  Este código HTML representa uma página de "Registros de Tempo", onde o usuário pode visualizar e filtrar seus registros de tempo,
+  além de ordenar os dados de acordo com a data ou o tempo registrado.
+
+  Funcionalidade geral:
+  - A página permite ao usuário visualizar seus registros de tempo, filtrar os registros por um intervalo de datas e ordenar os dados por diferentes critérios (data ou tempo).
+  - O título da tarefa e os registros de tempo são preenchidos dinamicamente, proporcionando uma interface interativa e personalizada.
+-->
+
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Registros de Tempo</title>
+  <link rel="stylesheet" href="./css/style.mobile.css" />
+  <link rel="stylesheet" href="./css/titulo-card.css" />
+  <link rel="stylesheet" media="(min-width: 900px)" href="./css/style.desktop.css" />
+  <link rel="stylesheet" href="./css/navbar.css" />
+  <link rel="stylesheet" href="./css/registros.css">
+  <!-- Incluir Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="cards_list.html">Painel</a></li>
+    </ul>
+  </nav>
+
+  <div style="text-align: center;">
+    <h1 class="titulo-card">Registros de Tempo</h1>
+    <p id="descricao-tarefa" style="color: rgb(255, 255, 255); font-weight: bold;"></p>
+  </div>
+
+  <main>
+    <!-- Campos para Filtro de Data -->
+    <div style="text-align: center; margin-bottom: 1rem;">
+      <label for="data-inicio" style="color: white;">Início:</label>
+      <input type="date" id="data-inicio" name="data-inicio">
+      <label for="data-fim" style="color: white;">Fim:</label>
+      <input type="date" id="data-fim" name="data-fim">
+      <button id="filtrar-data">Filtrar</button>
+    </div>
+
+    <!-- Botões de ordenação -->
+    <div style="text-align: center; margin-bottom: 1rem;">
+      <button id="ordenar-menor-maior">
+        <i class="bi bi-arrow-up-circle-fill"> <i class="bi bi-calendar-month-fill"></i></i></i> 
+      </button>
+      <button id="ordenar-maior-menor">
+        <i class="bi bi-arrow-down-circle-fill"></i><i class="bi bi-calendar-month-fill"></i></i>
+      </button>
+      <button id="ordenar-tempo-maior-menor">
+        <i class="bi bi-arrow-up-circle-fill"> <i class="bi bi-alarm-fill"></i></i></i></i> 
+      </button>
+      <button id="ordenar-tempo-menor-maior">
+        <i class="bi bi-arrow-down-circle-fill"> <i class="bi bi-alarm-fill"></i></i></i></i> 
+      </button>
+    </div>
+
+    <div class="user-pannel" id="registros-lista" style="display: flex; flex-direction: column; gap: 1rem; padding: 1rem;">
+      <!-- Itens preenchidos por JS -->
+    </div>
+  </main>
+
+  <script src="./js/registro.js"></script>
+</body>
+</html>

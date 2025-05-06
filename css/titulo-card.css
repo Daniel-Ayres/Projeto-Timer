@@ -1,0 +1,54 @@
+/*
+  Estilização de título centralizado com aparência destacada.
+
+  ● .titulo-wrapper:
+    - Contêiner do título.
+    - Usa Flexbox para centralizar horizontal e verticalmente.
+    - Garante largura total e centralização com `margin: 0 auto`.
+
+  ● .titulo-card:
+    - Estilo visual do título em si:
+      - Cor branca em fundo azul escuro (#05006D).
+      - Padding interno, bordas arredondadas e uma borda branca para destacar.
+      - Fonte grande e em negrito, com alinhamento central.
+      - Largura máxima de 800px, mas adaptável com `width: 100%`.
+      - Permite quebra de linha com `word-wrap` e evita estouro de layout.
+      - Usa `box-sizing: border-box` para garantir que padding/border não extrapolem o tamanho total.
+
+
+*/
+
+
+.titulo-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  
+  .titulo-card {
+    display: inline-block;
+    margin: 1em 0;
+    color: white;
+    background-color: #05006D;
+    padding: 0.4em 1em;
+    border-radius: 12px;
+    border: 2px solid white;
+    font-weight: bold;
+    font-size: 1.6rem;
+    text-align: center;
+  
+    max-width: 800px;          /* Limite real de largura */
+    width: 100%;
+    word-wrap: break-word;
+    box-sizing: border-box;
+  }
+
+  @media (max-width: 600px) {
+    .titulo-card {
+      font-size: 1.2rem;
+      padding: 0.3em 0.6em;
+    }
+  }
+  

@@ -1,0 +1,185 @@
+/*
+  Estilos para a seção principal de um painel de usuário com layout flexível e visual moderno.
+
+  ● Estrutura principal:
+    - `main`: Define um contêiner centralizado e responsivo, com padding e tipografia.
+    - `.content`: Organiza os elementos filhos (painel lateral e painel principal) em linha com espaçamento.
+
+  ● Painel lateral (user-wrapper):
+    - Ocupa 23% da largura e organiza conteúdos como título (`_header`) e botões (`_footer`) verticalmente.
+    - Título usa `clamp()` para responsividade da fonte.
+    - Botões recebem padding e efeito de hover para feedback visual.
+
+  ● Painel principal (user-pannel):
+    - Ocupa 75% da largura, usa `flex-wrap` para se adaptar a diferentes tamanhos de tela.
+    - Cada `.pannel-box` representa um card interativo com gradiente, sombra, bordas arredondadas e efeitos de hover (elevação + sombra).
+
+  ● Conteúdo do card:
+    - `.box-content`: Visual de fundo com `backdrop-filter` para efeito glassmorphism.
+    - `._header-box`: Cabeçalho do card com título e rótulo.
+    - `._body-box`: Informações detalhadas, com `strong` usado como rótulo superior estilizado para cada parágrafo.
+
+
+  ● Interações:
+    - `.row-clickable`: Estiliza linhas clicáveis com cursor de ponteiro e mudança de fundo ao passar o mouse, usado provavelmente em tabelas.
+
+  Resultado:
+    Um layout moderno com painel lateral e cards visuais para exibição de dados, com foco em responsividade, interatividade e estética escura/glassmorphism.
+*/
+
+
+main {
+  margin: 0 auto;
+  padding: 1em 1em;
+  max-width: 1100px;
+  width: 95%;
+  font-family: "Rubik", sans-serif;
+}
+
+main .content {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 0;
+  gap: 1em;
+}
+
+main .content .user-wrapper {
+  width: 23%;
+}
+
+main .content .user-wrapper ._header {
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+
+main .content .user-wrapper ._header h1 {
+  width: 80%;
+  padding: 1em;
+  padding-bottom: 3em;
+}
+
+main .content .user-wrapper ._header h1 span {
+  font-size: clamp(1rem, 4vw, 2rem);
+}
+
+main .content .user-wrapper ._footer {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  padding: 1em;
+}
+
+main .content .user-wrapper ._footer button {
+  padding: 1em;
+  cursor: pointer;
+}
+
+main .content .user-wrapper ._footer button:hover {
+  color: white;
+}
+
+main .content .user-pannel {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 75%;
+  gap: 1em;
+}
+
+main .content .user-pannel .pannel-box {
+  width: 30%;
+  margin: 0;
+  padding-top: 2em;
+  cursor: pointer;
+
+  background: linear-gradient(to top right, #3e1db0, #2b00a3);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+main .content .user-pannel .pannel-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+main .content .user-pannel .pannel-box .box-content {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  padding: 2em;
+  backdrop-filter: blur(5px);
+}
+
+main .content .user-pannel .pannel-box .box-content ._header-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 1em;
+}
+
+main .content .user-pannel .pannel-box .box-content ._header-box h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 0;
+  letter-spacing: 0.5px;
+}
+
+main .content .user-pannel .pannel-box .box-content ._header-box span {
+  color: #bdc1ff;
+}
+
+main .content .user-pannel .pannel-box .box-content ._body-box {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3em;
+  margin-top: 1em;
+}
+
+main .content .user-pannel .pannel-box .box-content ._body-box p {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+}
+
+main .content .user-pannel .pannel-box .box-content ._body-box p strong {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 400;
+  color: #bdc1ff;
+  margin-bottom: 0.2em;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+
+.attribution a {
+  color: #3e52a3;
+}
+
+/* ✅ Estilo para linhas clicáveis da tabela */
+.row-clickable {
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.row-clickable:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}

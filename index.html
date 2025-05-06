@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<!-- 
+  Este código HTML cria a estrutura básica de um "Painel de Atividades", onde o usuário pode visualizar informações 
+  sobre registros de atividades e a lista de tarefas.
+
+  Funcionalidade geral:
+  - A página permite ao usuário visualizar suas **atividades registradas** e uma **lista de tarefas** de forma interativa.
+  - O nome do usuário logado será atualizado dinamicamente, proporcionando uma experiência personalizada.
+  - Os dados da tabela e da lista de tarefas são preenchidos dinamicamente por meio de JavaScript.
+-->
+
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Painel de Atividades</title>
+
+  <link rel="stylesheet" href="./css/cards-select.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <section id="sidebar">
+    <a href="#" class="brand"><span class="text">Painel de Atividades</span></a>
+  </section>
+
+  <!-- CONTEÚDO -->
+  <section id="content">
+    <nav style="display: flex; justify-content: space-between; align-items: center; padding: 0 1rem;">
+      <i class="bi bi-list"></i>
+      <span id="usuario-logado" style="color: white; font-weight: bold; display: flex; align-items: center; gap: 8px;">
+        <i class="bi bi-person-circle" style="font-size: 1.4rem;"></i>
+        <span id="nome-exibido">John Doe</span>
+      </span>      
+    </nav>
+
+    <main>
+      <div class="head-title">
+        <h1>Registro de Cards</h1>
+      </div>
+      <br />
+
+      <div class="table-data">
+
+        <!-- DADOS DE REGISTRO -->
+        <div class="order">
+          <div class="head"><h3 style="text-align: center;">Dados de Registro</h3></div>
+          <br>
+          <table>
+            <thead>
+              <tr>
+                <th>Usuário</th>
+                <th>Atividade</th>
+                <th>Tempo Registrado</th>
+                <br>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Preenchido dinamicamente por cards-select.js -->
+            </tbody>
+          </table>
+        </div>
+
+        <!-- LISTA DE TAREFAS -->
+        <div class="todo">
+          <div class="head" style="text-align: center;">
+            <h3>Lista de Tarefas</h3>
+            <br>
+          </div>          
+          <ul class="todo-list">
+            <!-- Preenchido dinamicamente por cards-select.js -->
+          </ul>
+        </div>
+
+      </div>
+    </main>
+  </section>
+
+  <script src="./js/cards-select.js"></script>
+</body>
+</html>

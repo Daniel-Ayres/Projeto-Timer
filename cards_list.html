@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- 
+  Este código HTML representa a estrutura de uma página de um painel de controle interativo para monitoramento de tempo, 
+  utilizando o design de uma dashboard responsiva, onde o usuário pode visualizar suas tarefas e o tempo rastreado 
+  para cada uma delas.
+
+     **Funcionalidade Esperada**:
+     - A página permitirá ao usuário visualizar seu tempo rastreado por tarefas em diferentes períodos (diário, semanal e mensal).
+     - A interação com os botões de filtro (Hoje, Últimos 7 Dias, Este Mês) atualizará o conteúdo de maneira dinâmica.
+-->
+
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon-32x32.png" />
+    <title>Frontend Mentor | Time tracking dashboard</title>
+    <link rel="stylesheet" href="./css/style.mobile.css" />
+    <link rel="stylesheet" href="./css/titulo-card.css" />
+    <link rel="stylesheet" media="(min-width: 900px)" href="./css/style.desktop.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <button class="menu-toggle" aria-label="Toggle menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="registro.html">Registros</a></li>
+        <li><a href="#" id="diario">Diario</a></li>
+        <li><a href="#" id="semanal">Semanal</a></li>
+        <li><a href="#" id="mensal">Mensal</a></li>
+      </ul>
+    </nav>
+    <br>
+    <div style="text-align: center;">
+      <!-- Título da atividade, que será atualizado dinamicamente -->
+      <h1 class="titulo-card"></h1>
+    </div>
+    <br>
+    <br>    
+    <main>
+      <div class="content">
+        <div class="user-wrapper">
+          <div class="_header">
+            <h1>Tempo Rastreado<br>
+              <span id="nome-usuario"></span>
+            </h1>
+          </div>
+          <div class="_footer">
+            <button id="daily">Hoje</button>
+            <button id="weekly" class="active">Último 7 Dias</button>
+            <button id="monthly">Este mês</button>
+          </div>
+        </div>
+        <div class="user-pannel">
+        </div>
+      </div>
+    </main>
+    <script src="./js/service.js"></script>
+  </body>
+</html>

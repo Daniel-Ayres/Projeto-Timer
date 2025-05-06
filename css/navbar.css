@@ -1,0 +1,116 @@
+/*
+  Este CSS define a aparência e o comportamento de uma barra de navegação responsiva com suporte a menu mobile (hambúrguer) e versão desktop.
+
+  - Importa a fonte 'Rubik' do Google Fonts e aplica ao corpo, navbar e links.
+  - Aplica um reset básico (margem, padding, box-sizing).
+  - Estiliza a navbar com cor de fundo escura, alinhamento central e layout flexível.
+  - Cria um menu colapsável para dispositivos móveis com `.nav-links`, inicialmente oculto e exibido com `.active`.
+  - Estiliza os links de navegação com espaçamento, cor branca e hover com efeito de transição.
+  - Define um botão de menu (`.menu-toggle`) visível apenas em telas menores, que serve para abrir o menu no mobile.
+  - Com media query (`min-width: 900px`), adapta o layout para telas maiores:
+    - Esconde o botão de menu.
+    - Mostra os links horizontalmente em linha, removendo estilos do modo mobile.
+    - Ajusta o posicionamento e remove o fundo e sombra do menu.
+
+  
+*/
+
+
+/* Importa a fonte Rubik */
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;700&display=swap');
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+.navbar,
+.navbar ul,
+.nav-links a {
+  font-family: 'Rubik', sans-serif;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar base */
+.navbar {
+  width: 100%;
+  background-color: #0A034C;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 2rem;
+  color: white;
+  position: relative;
+  z-index: 10;
+}
+
+.nav-links {
+  display: none;
+  flex-direction: column;
+  gap: 1rem;
+  position: absolute;
+  top: 100%;
+  background-color: #1d204b;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  width: 100%;
+}
+
+.nav-links.active {
+  display: flex;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.2s ease;
+  font-size: 1.0rem;
+}
+
+.nav-links a:hover {
+  color: #0a0909;
+}
+
+.menu-toggle {
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  position: absolute;
+  left: 1rem;
+}
+
+/* Desktop view */
+@media (min-width: 900px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .navbar {
+    justify-content: center;
+  }
+
+  .nav-links {
+    position: static;
+    display: flex !important;
+    flex-direction: row;
+    gap: 2rem;
+    padding: 0;
+    box-shadow: none;
+    background: transparent;
+    text-align: left;
+    width: auto;
+  }
+}

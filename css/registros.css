@@ -1,0 +1,318 @@
+/*
+  registros.css — Estilização personalizada da interface de uma lista de registros com layout moderno e responsivo.
+
+  ● Layout principal
+    - O contêiner `#registros-lista` usa grid responsivo para exibir cards (registros) com espaçamento e centralização.
+
+  ● Estilo dos Cards
+    - `.pannel-box` define o estilo visual dos cards com fundo escuro, bordas arredondadas, sombra e efeito de escala ao passar o mouse.
+    - `.box-content`, `._header-box` e `._body-box` organizam o conteúdo do card em seções bem definidas, com textos e ícones estilizados.
+
+  ● Filtros
+    - `.filtros-registro` cria uma área visual para campos de filtro, com layout flexível, estilização escura e espaçamento adequado.
+    - Inputs e botões dentro da área de filtros são estilizados para manter a coerência visual com o restante da interface.
+
+  ● Título e Descrição
+    - `.titulo-registro` centraliza e estiliza o título principal da seção de registros com destaque.
+    - `.descricao-tarefa` exibe informações adicionais de forma elegante, com ícones e textos organizados em colunas.
+
+  ● Botões
+    - Os `button` recebem estilos modernos com fundo azul, ícones, efeitos de hover, foco e clique.
+    - Estilo adaptável para vários tamanhos de tela com `flex-wrap` e comportamento empilhado em telas pequenas.
+
+  ● Campos de Data
+    - Inputs do tipo `date` são visualmente personalizados com bordas arredondadas, foco com brilho e responsividade.
+    - Labels associados também são estilizados para melhor legibilidade.
+
+  Resultado final:
+    Interface limpa, escura, moderna e centrada na experiência do usuário, com foco em legibilidade, responsividade e interação suave.
+*/
+
+
+/* Container dos registros */
+#registros-lista {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  /* Cards */
+  .pannel-box {
+    background-color: #1f1f2e;
+    border: 1px solid #2f2f3f;
+    border-radius: 12px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.25);
+    padding: 1rem 1.5rem;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .pannel-box:hover {
+    transform: scale(1.02);
+  }
+  
+  .box-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  ._header-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #444;
+    padding-bottom: 0.5rem;
+  }
+  
+  ._header-box h3 {
+    margin: 0;
+    font-size: 1.1rem;
+    color: #f8f8f8;
+  }
+  
+  ._header-box i {
+    font-size: 1.2rem;
+    color: #8ab4f8;
+  }
+  
+  ._body-box p {
+    margin: 0;
+    color: #ccc;
+    font-size: 0.95rem;
+  }
+  
+  /* Filtros */
+  .filtros-registro {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1rem 2rem;
+    margin-bottom: 1rem;
+    background-color: #2b2b3d;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  
+  .filtros-registro label {
+    color: #fff;
+    font-size: 0.95rem;
+  }
+  
+  .filtros-registro input {
+    margin-left: 0.4rem;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    border: 1px solid #444;
+    background-color: #1f1f2e;
+    color: #fff;
+  }
+  
+  .filtros-registro button {
+    padding: 0.4rem 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background-color: #4444aa;
+    color: #fff;
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+  
+  .filtros-registro button:hover {
+    background-color: #6666cc;
+  }
+  
+  /* Título geral */
+  .titulo-registro {
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .titulo-registro h1 {
+    font-size: 2rem;
+    color: #ffffff;
+    margin-bottom: 0.3rem;
+    border: 2px solid #3a3a5c;
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    border-radius: 8px;
+    background-color: #222244;
+    font-weight: bold;
+  }
+  
+  /* Descrição com nome/tarefa */
+  .descricao-tarefa {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1.5rem auto 2rem;
+    padding: 1rem 1.5rem;
+    background-color: #2b2b3d;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    max-width: 500px;
+    color: #f1f1f1;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  .descricao-tarefa i {
+    font-size: 2rem;
+    color: #8ab4f8;
+  }
+  
+  .descricao-tarefa .info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .descricao-tarefa .nome {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .descricao-tarefa .tarefa {
+    font-size: 0.95rem;
+    color: #c2c2c2;
+    font-style: italic;
+  }
+  
+  /* Estilo geral para os botões */
+button {
+    background-color: #0056b3; /* Cor de fundo azul mais escuro */
+    color: white; /* Texto branco */
+    border: none; /* Remover bordas */
+    padding: 10px 18px; /* Diminuir o espaçamento interno */
+    font-size: 14px; /* Reduzir o tamanho da fonte */
+    cursor: pointer; /* Indica que o botão é clicável */
+    border-radius: 8px; /* Bordas arredondadas */
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Efeitos suaves */
+    margin: 5px; /* Espaçamento entre os botões */
+    display: flex; /* Flexbox para alinhar ícone e texto */
+    align-items: center; /* Alinha ícone e texto verticalmente */
+    justify-content: center; /* Centraliza conteúdo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    white-space: nowrap; /* Impede a quebra do texto */
+  }
+  
+  /* Estilo do ícone dentro do botão */
+  button i {
+    margin-right: 6px; /* Espaço entre o ícone e o texto */
+    font-size: 16px; /* Ajuste do tamanho do ícone */
+  }
+  
+  /* Efeito ao passar o mouse sobre o botão */
+  button:hover {
+    background-color: #004085; /* Cor de fundo mais escura */
+    transform: translateY(-3px); /* Eleva o botão */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Aumenta a sombra */
+  }
+  
+  /* Efeito ao clicar no botão */
+  button:active {
+    background-color: #003366; /* Cor de fundo ainda mais escura */
+    transform: translateY(1px); /* Botão mais pressionado */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1); /* Sombra mais suave */
+  }
+  
+  /* Efeito de foco (quando o botão é selecionado) */
+  button:focus {
+    outline: none; /* Remove a borda padrão */
+    box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.5); /* Adiciona uma borda de foco azul */
+  }
+  
+  /* Estilo para o contêiner dos botões */
+  div[style="text-align: center; margin-bottom: 1rem;"] {
+    margin-top: 20px;
+    display: flex; /* Flexbox para alinhar os botões */
+    justify-content: center; /* Alinha os botões ao centro */
+    flex-wrap: wrap; /* Permite que os botões se reorganizem em várias linhas se necessário */
+    gap: 10px; /* Espaçamento entre os botões */
+  }
+  
+  /* Estilos adicionais para o layout flexível */
+  @media (max-width: 768px) {
+    div[style="text-align: center; margin-bottom: 1rem;"] {
+      flex-direction: column; /* Empilha os botões na vertical em telas menores */
+    }
+  }
+  
+  /* Estilo para os campos de data */
+input[type="date"] {
+    padding: 10px;
+    border: 2px solid #ccc; /* Cor de borda suave */
+    border-radius: 8px; /* Bordas arredondadas */
+    font-size: 16px;
+    width: 200px;
+    background-color: #f9f9f9; /* Fundo claro */
+    color: #333; /* Cor do texto */
+    margin: 5px 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    outline: none; /* Remove a borda padrão ao focar */
+  }
+  
+  /* Efeito ao passar o mouse sobre o campo */
+  input[type="date"]:hover {
+    border-color: #007bff; /* Mudar a cor da borda quando passar o mouse */
+  }
+  
+  /* Estilo para o campo quando está em foco */
+  input[type="date"]:focus {
+    border-color: #0056b3; /* Borda azul mais forte ao focar */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Efeito de brilho azul */
+  }
+  
+  /* Estilo para o rótulo do campo de data */
+  label[for="data-inicio"], label[for="data-fim"] {
+    font-size: 16px;
+    color: #333; /* Cor do texto do rótulo */
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  /* Estilo do contêiner dos campos de data */
+  div[style="text-align: center; margin-bottom: 1rem;"] {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Espaçamento entre os campos */
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Estilo do botão "Filtrar" */
+  #filtrar-data {
+    background-color: #28a745; /* Cor verde */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 10px;
+  }
+  
+  #filtrar-data:hover {
+    background-color: #218838; /* Cor verde mais escura ao passar o mouse */
+  }
+  
+  /* Ajustes para dispositivos móveis */
+  @media (max-width: 768px) {
+    input[type="date"] {
+      width: 160px; /* Reduzir a largura do campo em telas pequenas */
+    }
+  
+    #filtrar-data {
+      padding: 8px 15px; /* Ajuste no tamanho do botão em dispositivos móveis */
+    }
+  
+    div[style="text-align: center; margin-bottom: 1rem;"] {
+      flex-direction: column; /* Empilhar os campos e o botão na vertical em telas pequenas */
+    }
+  }
+  
