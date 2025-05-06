@@ -43,7 +43,7 @@ Cada usuário tem uma lista de tarefas (por exemplo, "Planejamento", "Suporte T�
 Ao clicar no botão de iniciar, um cronômetro começa a contar o tempo. Ao clicar novamente, o tempo será automaticamente salvo e associado à tarefa e ao dia atual. O tempo registrado será exibido em tempo real na interface.
 
 ### 4. **Tabela de Registros**
-A tela principal exibe uma tabela com todas as tarefas e o tempo total dedicado a cada uma delas. Ao clicar em uma tarefa, você verá todos os registros detalhados dessa atividade.
+A tela principal exibe uma tabela com todas as tarefas e o tempo total dedicado a cada uma delas. **Clique no nome do usuário** para visualizar mais informações detalhadas sobre os registros de tempo dessa pessoa.
 
 ### 5. **Filtros e Organização**
 Você pode aplicar filtros para visualizar os registros dentro de um intervalo de datas específico. Também é possível organizar os registros:
